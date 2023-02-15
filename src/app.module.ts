@@ -6,6 +6,6 @@ import { MathService } from './math.service';
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: [MathService],
+  providers: [MathService, AppService],
 })
 export class AppModule {}

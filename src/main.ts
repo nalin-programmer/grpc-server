@@ -8,7 +8,7 @@ const microserviceOptions = {
   // transport: Transport.REDIS,  <-- Change this
   transport: Transport.GRPC,  //  <-- to this
   options: {
-    // url: 'redis://localhost:6379',                  <-- remove this
+    url: 'localhost:50051',
     package: 'app', //                                 <-- add this
     protoPath: join(__dirname, '../src/app.proto'), // <-- & this
   },
@@ -21,5 +21,7 @@ async function bootstrap() {
   //   logger.log('Microservice is listening...');
   // });
   await app.listen();
+  const app1 = await NestFactory.create(AppModule);
+  await app1.listen(3001);
 }
 bootstrap();
